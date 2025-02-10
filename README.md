@@ -1,4 +1,4 @@
-# Creator: Fabien Conéjéro / FC84 - Copyright (c) 2025 - This project is licensed under the MIT License.
+# Creator : Fabien Conéjéro / FC84 - Copyright (c) 2025 - This project is licensed under the MIT License.
 # Name of this project : Scrollable-Clickable-Content-Accordion-to-Enhance-UX-While-Maintaining-SEO-FC84
 
 # Scrollable-Clickable-Content-Accordion-to-Enhance-UX-While-Maintaining-SEO-FC84
