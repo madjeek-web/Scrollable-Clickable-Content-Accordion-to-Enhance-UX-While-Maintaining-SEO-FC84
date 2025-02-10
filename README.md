@@ -1,0 +1,2 @@
+# Scrollable-Clickable-Content-Accordion-to-Enhance-UX-While-Maintaining-SEO-FC84
+ : This project features a simple CSS accordion that allows users to hide or display content sections by clicking on titles. It's ideal for long pages, such as legal notices or product specifications, as it reduces page length and simplifies navigation, enhancing the user experience without overwhelming them with excess content.
