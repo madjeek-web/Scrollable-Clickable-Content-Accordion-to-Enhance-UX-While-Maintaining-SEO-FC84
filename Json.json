@@ -1,0 +1,35 @@
+{
+  "project": {
+    "name": "Scrollable-Clickable-Content-Accordion-to-Enhance-UX-While-Maintaining-SEO-FC84",
+    "creator": {
+      "name": "Fabien Conéjéro",
+      "identifier": "FC84",
+      "copyright_year": 2025,
+      "license": "MIT"
+    },
+    "description": {
+      "summary": "This project features a simple CSS accordion that allows users to hide or display content sections by clicking on titles.",
+      "details": [
+        "Ideal for long pages, such as legal notices or product specifications, as it reduces page length and simplifies navigation.",
+        "Enhances user experience by presenting content in a compact manner.",
+        "Each section can contain text, images, or other HTML elements.",
+        "Particularly beneficial for long web pages with a significant amount of text.",
+        "Helps users navigate and find information without being overwhelmed by extensive content."
+      ]
+    },
+    "version": "V.2",
+    "features": [
+      "Paragraph texts are scrollable, reducing the height of the text contents.",
+      "Decreases the page size in terms of length to scroll for users.",
+      "Contributes to a smoother and more enjoyable navigation."
+    ],
+    "keywords": [
+      "accordion",
+      "CSS",
+      "user experience",
+      "SEO",
+      "web design",
+      "navigation"
+    ]
+  }
+}
