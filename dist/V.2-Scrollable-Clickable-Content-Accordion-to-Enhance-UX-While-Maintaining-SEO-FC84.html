@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion with Scroll Bars</title>
+    <style>
+        /* General body style */
+        body {
+            font-family: Arial, sans-serif; /* Font used */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Aligns content to the top */
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px; /* Added some padding */
+        }
+
+        /* Main container to center content */
+        .container {
+            max-width: 600px; /* Maximum width of the container */
+            margin: 20px auto; /* Margin top and bottom, centered horizontally */
+        }
+
+        /* Styles for each accordion section */
+        .toggle {
+            position: relative; /* Relative positioning to allow absolute positioning of children */
+            border: 1px solid #ccc; /* Light gray border around each section */
+            border-radius: 5px; /* Rounded corners */
+            margin: 10px 0; /* Vertical margin between sections */
+            overflow: hidden; /* Hide overflow of content */
+        }
+
+        /* Hidden checkbox */
+        .toggle-checkbox {
+            display: none; /* Hides the checkbox used to control the accordion state */
+        }
+
+        /* Style for the accordion section title */
+        .toggle-title {
+            display: flex; /* Uses flexbox to align elements */
+            align-items: center; /* Vertically centers the elements */
+            padding: 10px; /* Internal spacing */
+            cursor: pointer; /* Changes the cursor to pointer to indicate clickability */
+            background-color: #f2f2f2; /* Background color for the title */
+            text-align: left; /* Left text alignment */
+            justify-content: space-between; /* Space between text and arrow */
+        }
+
+        /* Content of the accordion section */
+        .toggle-content {
+            max-height: 0; /* Initial height is zero (hidden by default) */
+            overflow-y: hidden; /* Hides overflowing content */
+            opacity: 0; /* Starts as transparent */
+            transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.8s ease; /* Animation on opening */
+            padding: 0 10px; /* Internal spacing */
+            background-color: #fff; /* Background color of the content */
+        }
+
+        /* Styles applied when the checkbox is checked */
+        .toggle-checkbox:checked + .toggle-title + .toggle-content {
+            max-height: 300px; /* Maximum height when content is visible */
+            opacity: 1; /* Make content opaque */
+            padding: 10px; /* Adds padding when content is visible */
+            overflow-y: auto; /* Vertical scrollbar when content exceeds height */
+        }
+
+        /* Styles for arrows */
+        .toggle-arrow {
+            width: 20px; /* Width of arrow button */
+            height: 20px; /* Height of arrow button */
+            border: none; /* No border */
+            border-radius: 50%; /* Rounded corners for the button */
+            background-color: #4CAF50; /* Background color of the arrow button */
+            display: flex; /* Uses flexbox to center content */
+            justify-content: center; /* Horizontally centers */
+            align-items: center; /* Vertically centers */
+            cursor: pointer; /* Changes the cursor to pointer to indicate clickability */
+            margin-left: 10px; /* Left margin */
+            transition: background-color 0.3s; /* Background animation on hover */
+        }
+
+        /* Arrow button color on hover */
+        .toggle-arrow:hover {
+            background-color: #45a049; /* Darker color on hover */
+        }
+
+        /* Footer arrow to close the section */
+        .toggle-footer {
+            display: none; /* Hidden by default */
+            justify-content: flex-end; /* Aligns close button to the right */
+            padding: 10px; /* Internal spacing */
+        }
+
+        /* Show close button when section is open */
+        .toggle-checkbox:checked + .toggle-title + .toggle-content + .toggle-footer {
+            display: flex; /* Shows close button */
+        }
+
+        /* Color of the close button */
+        .toggle-footer .toggle-arrow {
+            background-color: #f44336; /* Red color for close button */
+        }
+
+        /* Color of the close button on hover */
+        .toggle-footer .toggle-arrow:hover {
+            background-color: #d32f2f; /* Darker color on hover */
+        }
+
+        /* Style for the arrow itself */
+        .arrow {
+            width: 10px; /* Width of the arrow */
+            height: 10px; /* Height of the arrow */
+            border: solid white; /* Color of the arrow */
+            border-width: 0 2px 2px 0; /* Arrow style */
+            display: inline-block; /* Display inline */
+            padding: 3px; /* Internal spacing */
+            transform: rotate(45deg); /* Rotation to create an arrow */
+            transition: transform 0.3s; /* Animation of rotation */
+        }
+
+        /* Rotation of the arrow when section is open */
+        .toggle-checkbox:checked + .toggle-title .arrow {
+            transform: rotate(-135deg); /* Rotation to indicate that the section is open */
+        }
+
+        /* 
+        This project consists of a simple CSS accordion 
+        that allows users to hide or display 
+        sections of content by clicking on the titles. 
+        Each section can contain text, images, or 
+        other HTML elements. The accordion is designed to 
+        enhance user experience by presenting content 
+        compactly.
+
+        In terms of SEO, the content of the sections is still 
+        present in the HTML code even when hidden. 
+        This means it remains accessible to search engines for 
+        indexing, which is beneficial for SEO. Users can also 
+        interact with the content without affecting its 
+        visibility in search results.
+
+        In this version of the project, the paragraph texts 
+        are scrollable, which reduces the height of the text 
+        contents. Thus, it decreases the page size in terms 
+        of length to scroll for users, contributing to a smoother 
+        and more enjoyable navigation.
+        */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="toggle">
+            <input type="checkbox" id="toggle1" class="toggle-checkbox">
+            <label for="toggle1" class="toggle-title">
+                Paragraph Title 1  
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </label>
+            <div class="toggle-content">
+                <div class="scroll-box">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="toggle-footer" onclick="document.getElementById('toggle1').checked = false;">
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </div>
+        </div>
+        
+        <div class="toggle">
+            <input type="checkbox" id="toggle2" class="toggle-checkbox">
+            <label for="toggle2" class="toggle-title">
+                Paragraph Title 2  
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </label>
+            <div class="toggle-content">
+                <div class="scroll-box">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+            <div class="toggle-footer" onclick="document.getElementById('toggle2').checked = false;">
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </div>
+        </div>
+
+        <div class="toggle">
+            <input type="checkbox" id="toggle3" class="toggle-checkbox">
+            <label for="toggle3" class="toggle-title">
+                Paragraph Title 3  
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </label>
+            <div class="toggle-content">
+                <div class="scroll-box">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="toggle-footer" onclick="document.getElementById('toggle3').checked = false;">
+                <div class="toggle-arrow"><div class="arrow"></div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
